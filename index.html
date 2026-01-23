@@ -3,65 +3,209 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn Rabha Language App</title>
+  <title>Rabhaly | Master the Rabha Language</title>
   <style>
+    :root {
+      --bg-color: #161F31;
+      --card-bg: #1F2635;
+      --accent-blue: #3b82f6;
+      --accent-green: #22c55e;
+      --text-main: #ffffff;
+      --text-dim: #cbd5e1;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #161F31;
-      color: #fff;
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* Hero Section */
+    header {
+      padding: 80px 20px;
       display: flex;
       flex-direction: column;
+      align-items: center; /* Centers horizontal items */
+      justify-content: center;
+      text-align: center; /* Centers text lines */
+      background: radial-gradient(circle at top, #2A3445 0%, #161F31 70%);
+    }
+
+    .logo-container {
+      background: linear-gradient(135deg, #343C4E, #1F2635);
+      width: 250px;
+      height: 80px;
+      border-radius: 20px;
+      display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-    }
-    h1 {
       font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #ccc;
-    }
-    .download-btn {
-      padding: 16px 32px;
-      font-size: 1.2rem;
       font-weight: bold;
-      background-color: #343C4E;
+      margin-bottom: 24px;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      letter-spacing: 2px;
+    }
+
+    .tagline {
+      font-size: 1.25rem;
+      color: var(--text-dim);
+      max-width: 600px;
+      margin: 20px auto 40px auto;
+      text-align: center; /* Explicitly centered */
+    }
+
+    /* Responsive Features Grid */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .feature-card {
+      background-color: var(--card-bg);
+      padding: 32px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.05);
+      text-align: left; /* Keep card text left-aligned for readability */
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 12px 0;
       color: #fff;
+    }
+
+    .feature-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #94a3b8;
+    }
+
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .download-btn {
+      padding: 18px 36px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      background-color: var(--text-main);
+      color: var(--bg-color);
       border: none;
-      border-radius: 12px;
+      border-radius: 50px;
       cursor: pointer;
       text-decoration: none;
       transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
     }
+
     .download-btn:hover {
-      background-color: #4a5366;
+      background-color: var(--accent-blue);
+      color: white;
       transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
     }
+
+    /* Footer */
     footer {
-      position: fixed;
-      bottom: 10px;
+      padding: 60px 20px;
       font-size: 0.9rem;
-      color: #888;
+      color: #64748b;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center; /* Explicitly centered */
+    }
+
+    .dev-credit {
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 50px 20px; }
+      .feature-card { padding: 24px; }
     }
   </style>
 </head>
 <body>
 
-  <h1>Learn Rabha Language</h1>
-  <p>Install the app and start learning Rabha words, sentences, and phrases!</p>
-  
-  <!-- Download button -->
-  <a class="download-btn" href="rabhaly.apk" download>
-    Download APK
-  </a>
+  <header>
+    <div class="logo-container">RABHALY</div>
+    <p class="tagline">The most intuitive way to learn, practice, and master the Rabha language right from your pocket.</p>
+    
+    <div class="btn-group">
+      <a class="download-btn" href="rabhaly.apk" download>
+        <span>Download APK</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+      </a>
+    </div>
+  </header>
 
-  <footer>© 2026 Rabha Learning<br>
- Developed by OMESH RABHA</footer>
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="icon">📚</span>
+        <h3>Interactive Lessons</h3>
+        <p>Go beyond memorization. Our lesson engine adapts to your progress using smart repetition and mistakes tracking.</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="icon">🧩</span>
+        <h3>Sentence Builder</h3>
+        <p>Master syntax by arranging words into perfect sentences. Includes English hints to help you understand Rabha grammar.</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="icon">⚡</span>
+        <h3>Quick Match</h3>
+        <p>Rapid-fire matching games to build your vocabulary. Practice daily and keep your "Check Answer" streak alive.</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="icon">✍️</span>
+        <h3>Translation Step</h3>
+        <p>Challenge yourself by translating Rabha to English and vice versa with fuzzy-matching logic that understands your typos.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Rabhaly</p>
+    <p>Built with ❤️ by <a href="https://omeshrabha-portfolio.netlify.app/" class="dev-credit">Omesh Rabha</a></p>
+  </footer>
 
 </body>
 </html>
