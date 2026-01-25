@@ -1,211 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rabhaly | Master the Rabha Language</title>
-  <style>
-    :root {
-      --bg-color: #161F31;
-      --card-bg: #1F2635;
-      --accent-blue: #3b82f6;
-      --accent-green: #22c55e;
-      --text-main: #ffffff;
-      --text-dim: #cbd5e1;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rabhaly - Rabha Language Learning App</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Base Styles */
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #faf8f5;
+    color: #2c2c2c;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-    body {
-      margin: 0;
-      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.6;
-    }
+/* Typography */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+}
 
-    /* Hero Section */
-    header {
-      padding: 80px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* Centers horizontal items */
-      justify-content: center;
-      text-align: center; /* Centers text lines */
-      background: radial-gradient(circle at top, #2A3445 0%, #161F31 70%);
-    }
+/* Header */
+header {
+    background-color: #f4f1ed;
+    padding: 80px 20px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
 
-    .logo-container {
-      background: linear-gradient(135deg, #343C4E, #1F2635);
-      width: 250px;
-      height: 80px;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      font-weight: bold;
-      margin-bottom: 24px;
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-      letter-spacing: 2px;
-    }
+header h1 {
+    font-size: 3em;
+    color: #4b2e2e;
+    margin-bottom: 15px;
+}
 
-    .tagline {
-      font-size: 1.25rem;
-      color: var(--text-dim);
-      max-width: 600px;
-      margin: 20px auto 40px auto;
-      text-align: center; /* Explicitly centered */
-    }
+header p {
+    font-size: 1.2em;
+    color: #6b5b5b;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
 
-    /* Responsive Features Grid */
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
+/* SVG Pattern for subtle Rabha touch */
+header svg {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 80px;
+    opacity: 0.1;
+}
 
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-bottom: 60px;
-    }
+/* Features Section */
+section.features {
+    padding: 80px 20px;
+    text-align: center;
+}
 
-    .feature-card {
-      background-color: var(--card-bg);
-      padding: 32px;
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.05);
-      text-align: left; /* Keep card text left-aligned for readability */
-      transition: transform 0.3s ease;
-    }
+section.features h2 {
+    font-size: 2.2em;
+    color: #4b2e2e;
+    margin-bottom: 50px;
+}
 
-    .feature-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(59, 130, 246, 0.3);
-    }
+.feature-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
 
-    .icon {
-      font-size: 2rem;
-      margin-bottom: 16px;
-      display: block;
-    }
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 40px 30px;
+    width: 280px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
 
-    .feature-card h3 {
-      margin: 0 0 12px 0;
-      color: #fff;
-    }
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
 
-    .feature-card p {
-      margin: 0;
-      font-size: 0.95rem;
-      color: #94a3b8;
-    }
+.card h3 {
+    font-size: 1.4em;
+    color: #4b2e2e;
+    margin-bottom: 15px;
+}
 
-    /* Buttons */
-    .btn-group {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+.card p {
+    font-size: 0.95em;
+    color: #6b5b5b;
+    line-height: 1.6;
+}
 
+/* Download Section */
+section.download {
+    background-color: #f4f1ed;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+section.download h2 {
+    font-size: 2.2em;
+    color: #4b2e2e;
+    margin-bottom: 30px;
+}
+
+.download-btn {
+    display: inline-block;
+    background-color: #4b2e2e;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 18px 50px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #3a1f1f;
+}
+
+section.download p {
+    margin-top: 12px;
+    font-size: 0.9em;
+    color: #6b5b5b;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #2c2c2c;
+    color: #faf8f5;
+    font-size: 0.9em;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .feature-cards {
+        gap: 20px;
+    }
+     .download-btn-header {
+        padding: 16px 50px;
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2em;
+    }
+    header p {
+        font-size: 1em;
+    }
+    .feature-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 90%;
+        padding: 30px 20px;
+    }
+    section.download h2 {
+        font-size: 1.8em;
+    }
     .download-btn {
-      padding: 18px 36px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      background-color: var(--text-main);
-      color: var(--bg-color);
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+        padding: 15px 40px;
+        font-size: 1.1em;
     }
+     .download-btn-header {
+        display: block; /* full width for small screens */
+        padding: 14px 40px;
+        font-size: 1.1em;
+        margin: 30px auto 0; /* centered with top margin */
+        width: 80%; /* button takes most of the screen width */
+        text-align: center;
+    }
+}
+/* Header Download Button Specific Styling */
+.download-btn-header {
+    display: inline-block;
+    background: linear-gradient(135deg, #6b3d3d, #4b2e2e);
+    color: #fff;
+    font-size: 1.3em;
+    font-weight: 500;
+    padding: 18px 60px;
+    border-radius: 50px;
+    margin-top: 40px; /* top padding from header content */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
 
-    .download-btn:hover {
-      background-color: var(--accent-blue);
-      color: white;
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
-    }
+.download-btn-header:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #4b2e2e, #6b3d3d);
+}
 
-    /* Footer */
-    footer {
-      padding: 60px 20px;
-      font-size: 0.9rem;
-      color: #64748b;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      width: 100%;
-      box-sizing: border-box;
-      text-align: center; /* Explicitly centered */
-    }
 
-    .dev-credit {
-      color: var(--accent-blue);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    @media (max-width: 600px) {
-      header { padding: 50px 20px; }
-      .feature-card { padding: 24px; }
-    }
-  </style>
+</style>
 </head>
 <body>
 
-  <header>
-    <div class="logo-container">RABHALY</div>
-    <p class="tagline">The most intuitive way to learn, practice, and master the Rabha language right from your pocket.</p>
+<header>
+    <img src="rabhaly.png" width="150" height="200">
+    <h1>Learn Rabha with Elegance</h1>
+    <p>Learn the Rabha language elegantly, embrace the heritage, and connect with the culture in a modern way.</p>
+    <!-- Download Button below header text -->
+    <a href="rabhaly.apk" class="download-btn-header">Download Now</a>
     
-    <div class="btn-group">
-      <a class="download-btn" href="rabhaly.apk" download>
-        <span>Download APK</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
-          <polyline points="7 10 12 15 17 10"></polyline>
-          <line x1="12" y1="15" x2="12" y2="3"></line>
-        </svg>
-      </a>
+    <!-- SVG Pattern (subtle waves resembling weaving motifs) -->
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#4b2e2e"/>
+    </svg>
+</header>
+
+
+<section class="features">
+    <h2>Lesson Steps</h2>
+    <div class="feature-cards">
+        <div class="card">
+            <h3>Learning Words</h3>
+            <p>Start by learning essential Rabha words with clear meanings and examples.</p>
+        </div>
+        <div class="card">
+            <h3>Matching Words</h3>
+            <p>Interactive exercises to match words with images or their meanings.</p>
+        </div>
+        <div class="card">
+            <h3>Filling Words</h3>
+            <p>Practice by filling in missing words in sentences to improve vocabulary.</p>
+        </div>
+        <div class="card">
+            <h3>Building Sentences</h3>
+            <p>Combine words to form sentences, enhancing grammar and structure understanding.</p>
+        </div>
+        <div class="card">
+            <h3>Translating Sentences</h3>
+            <p>Translate sentences between Rabha and your native language for comprehension.</p>
+        </div>
+        <div class="card">
+            <h3>Note-Taking</h3>
+            <p>Keep track of new words, sentences, and lessons with in-app notes for review.</p>
+        </div>
     </div>
-  </header>
+</section>
+<section class="download">
+    <h2>Get Rabhaly</h2>
+    <a href="rabhaly.apk" class="download-btn">Download Now</a>
+    <p>Available on Android and iOS</p>
+</section>
 
-  <div class="container">
-    <div class="features-grid">
-      <div class="feature-card">
-        <span class="icon">📚</span>
-        <h3>Interactive Lessons</h3>
-        <p>Go beyond memorization. Our lesson engine adapts to your progress using smart repetition and mistakes tracking.</p>
-      </div>
-
-      <div class="feature-card">
-        <span class="icon">🧩</span>
-        <h3>Sentence Builder</h3>
-        <p>Master syntax by arranging words into perfect sentences. Includes English hints to help you understand Rabha grammar.</p>
-      </div>
-
-      <div class="feature-card">
-        <span class="icon">⚡</span>
-        <h3>Quick Match</h3>
-        <p>Rapid-fire matching games to build your vocabulary. Practice daily and keep your "Check Answer" streak alive.</p>
-      </div>
-
-      <div class="feature-card">
-        <span class="icon">✍️</span>
-        <h3>Translation Step</h3>
-        <p>Challenge yourself by translating Rabha to English and vice versa with fuzzy-matching logic that understands your typos.</p>
-      </div>
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2026 Rabhaly.</p>
+        <!-- <p>Follow us: 
+            <a href="#" style="color:#fff; text-decoration: underline;">Facebook</a> | 
+            <a href="#" style="color:#fff; text-decoration: underline;">Instagram</a> | 
+            <a href="#" style="color:#fff; text-decoration: underline;">Twitter</a>
+        </p> -->
+        <p>Developed by Omesh Rabha</p>
     </div>
-  </div>
+</footer>
 
-  <footer>
-    <p>© 2026 Rabhaly</p>
-    <p>Built with ❤️ by <a href="https://omeshrabha-portfolio.netlify.app/" class="dev-credit">Omesh Rabha</a></p>
-  </footer>
 
 </body>
 </html>
