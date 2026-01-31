@@ -216,6 +216,77 @@ footer {
     font-weight: 400;
     text-decoration: underline;
 }
+/* Project Disclaimer / Note */
+section.project-note {
+    background-color: #fff6f0;
+    padding: 25px 20px;
+    text-align: center;
+}
+
+section.project-note p {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 0.95em;
+    color: #5a4a4a;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+section.project-note strong {
+    color: #4b2e2e;
+    display: block;
+}
+.contact-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #faf8f5;
+}
+
+#contact-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#contact-form h2 {
+    margin-bottom: 20px;
+    color: #4b2e2e;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+}
+
+#contact-form textarea {
+    resize: none;
+    height: 120px;
+}
+
+#contact-form button {
+    background-color: #4b2e2e;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+#contact-form button:hover {
+    background-color: #3a1f1f;
+}
+.contact-subtext {
+    max-width: 500px;
+    margin: 0 auto 20px;
+    font-size: 0.95em;
+    color: #6b5b5b;
+    line-height: 1.6;
+}
+
 
 </style>
 </head>
@@ -233,6 +304,14 @@ footer {
         <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#4b2e2e"/>
     </svg>
 </header>
+<section class="project-note">
+    <p>
+        <strong>Note:</strong> This project is currently a showcase, not production-level.
+        If a community head or mentor is interested in scaling it, I’m open to collaborating
+        with a teacher to curate and structure the content properly. Some words or meanings may vary, as fully accurate and standardized sources for the Rabha language are limited. The content is shared with respect for the community and may evolve with guidance from native speakers and educators. Due to the lack of fully standardized and documented sources, certain words or meanings may not be entirely accurate and are subject to revision.
+    </p>
+
+</section>
 
 
 <section class="features">
@@ -269,6 +348,30 @@ footer {
     <a href="rabhaly.apk" class="download-btn">Download Now</a>
     <p>Available on Android and iOS</p>
 </section>
+<!-- Contact Form -->
+<!-- Collaboration / Scaling Contact Form -->
+<section class="contact-section">
+  <form id="contact-form">
+    <h2>Collaborate & Scale Rabhaly</h2>
+
+    <p class="contact-subtext">
+      If you are a community leader, educator, or mentor interested in helping
+      scale Rabhaly to the next level, feel free to reach out.
+    </p>
+
+    <input type="text" name="user_name" placeholder="Your Name" required />
+    <input type="email" name="user_email" placeholder="Your Email" required />
+
+    <textarea
+      name="message"
+      placeholder="Tell me about your background and how you'd like to collaborate (education, content review, scaling, funding, etc.)"
+      required></textarea>
+
+    <button type="submit">Send Collaboration Request</button>
+    <p id="form-status" style="margin-top:10px;"></p>
+  </form>
+</section>
+
 
 <footer>
     <div class="footer-content">
@@ -281,7 +384,29 @@ footer {
         <p>Developed by <a class="me" href = "https://www.instagram.com/omesh.rabha_/">Omesh Rabha</a></p>
     </div>
 </footer>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("CbkqvWZIO3HNUADtj"); // your public key
+  })();
 
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const status = document.getElementById('form-status');
 
+  emailjs.sendForm(
+    'service_wdpltny',
+    'template_lxw1hqj',
+    this
+  ).then(() => {
+      status.textContent = 'Message sent successfully!';
+      status.style.color = 'green';
+      this.reset();
+  }, () => {
+      status.textContent = 'Failed to send. Please try again.';
+      status.style.color = 'red';
+  });
+});
+</script>
 </body>
 </html>
